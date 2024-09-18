@@ -1,0 +1,83 @@
+<html>
+<head>
+<style>
+/* Main menu styles */
+.main-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.main-menu li {
+  display: inline-block;
+  position: relative;
+}
+
+.main-menu li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Submenu styles */
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.sub-menu li {
+  display: block;
+}
+
+.sub-menu li a {
+  padding: 8px 20px;
+}
+
+/* Show submenu on hover */
+.main-menu li:hover .sub-menu {
+  display: block;
+}
+</style>
+</head>
+<script>
+$(document).ready(function(){
+  $('.main-menu li').hover(function(){
+    $(this).find('.sub-menu').stop(true, true).slideDown('fast');
+  }, function(){
+    $(this).find('.sub-menu').stop(true, true).slideUp('fast');
+  });
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<body>
+<nav>
+  <ul class="main-menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a>
+      <ul class="sub-menu">
+        <li><a href="#">Our Team</a>
+			<ul class="sub-menu">
+				<li><a href="#">Our Team</a></li>
+				<li><a href="#">History</a></li>
+			 </ul>
+		</li>
+        <li><a href="#">History</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Services</a>
+      <ul class="sub-menu">
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">Graphic Design</a></li>
+        <li><a href="#">SEO</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</body>
+</html>
